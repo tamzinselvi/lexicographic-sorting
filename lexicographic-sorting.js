@@ -12,12 +12,14 @@ function lexicographic_sort(tosort, order) {
     var i = 0;
     var aVal, bVal;
     while (i < max) {
-      aVal = orderMap[a[i]];
-      bVal = orderMap[b[i]];
-      if (aVal === undefined) return -1;
-      if (bVal === undefined) return 1;
-      if (aVal < bVal) return -1;
-      if (aVal > bVal) return 1;
+      if (a[i] !== b[i]) {
+        aVal = orderMap[a[i]];
+        bVal = orderMap[b[i]];
+        if (aVal === undefined) return -1;
+        if (bVal === undefined) return 1;
+        if (aVal < bVal) return -1;
+        if (aVal > bVal) return 1;
+      }
       i++;
     }
     return 0;
